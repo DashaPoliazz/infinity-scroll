@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Card } from "./components/Card/Card";
+
+import "./App.css";
+
+const images = new Array(100)
+  .fill("")
+  .map((_, index) => `https://picsum.photos/id/${index}/200`);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        {images.map((image, index) => (
+          <Card key={index} imageUrl={image} />
+        ))}
+      </div>
     </div>
   );
 }
